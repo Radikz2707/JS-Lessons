@@ -3,7 +3,7 @@
 import { isWebp } from "@/modules/isWebp";
 import { initSandboxTabs as sandboxTabs } from "@comp/sandbox-tabs/sandbox-tabs";
 import { html_sandbox } from "@comp/html_sandbox/html_sandbox";
-import { sandboxUi } from "@/../components/sandbox-ui/sandbox-ui";
+import { sandboxUi } from "@comp/sandbox-ui/sandbox-ui";
 import { lessonTable } from "@/modules/lesson-table/lesson-table";
 import { lessonForms } from "@/modules/lesson-forms/lesson-forms";
 import { lessonLists } from "@/modules/lesson-lists/lesson-lists";

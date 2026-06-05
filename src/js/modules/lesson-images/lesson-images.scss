@@ -86,9 +86,9 @@
     left: 150%;
   }
 
-  &__block:hover {
+    &__block:hover {
     border-color: rgb(88 166 255 / 30%);
-    transform: rotateX(6deg) rotateY(-6px) translateY(-5px);
+    transform: rotateX(6deg) rotateY(-6deg) translateY(-5px);
   }
 
   &__img {  
