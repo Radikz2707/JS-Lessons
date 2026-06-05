@@ -1,0 +1,72 @@
+.sandbox-tabs {
+  position: relative;
+  z-index: 10; /* Ensures navigation stays above background flows */
+  padding: 20px 0;
+  background-color: #0d1117;
+}
+
+.sandbox-tabs__container {
+  display: flex;
+  gap: 12px;
+}
+
+.sandbox-tabs__btn {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 24px;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b949e;
+  background-color: #161b22;
+  border: 1px solid rgb(255 255 255 / 5%);
+  border-radius: 8px;
+  
+  /* Smooth transitions for high-end feel */
+  transition: 
+    color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for inactive buttons */
+.sandbox-tabs__btn:hover:not(.sandbox-tabs__btn_active) {
+  color: #c9d1d9;
+  background-color: #21262d;
+  border-color: rgb(88 166 255 / 30%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  transform: translateY(-1px);
+}
+
+/* Click/Active press state feedback */
+.sandbox-tabs__btn:active {
+  transform: translateY(1px);
+}
+
+/* Premium active tab style with subtle glow and under-line */
+.sandbox-tabs__btn_active {
+  color: #fff !important;
+  background-color: #1f6feb !important;
+  border-color: #58a6ff !important;
+  
+  /* Futuristic neon drop shadow */
+  box-shadow: 
+    0 0 20px rgb(29 111 235 / 40%),
+    0 4px 15px rgb(0 0 0 / 40%);
+    
+  /* Animated bottom laser line indicator */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: #58a6ff;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 -2px 10px #58a6ff;
+  }
+}

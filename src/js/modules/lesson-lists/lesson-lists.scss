@@ -1,0 +1,102 @@
+// Главный контейнер урока
+.lesson-lists {
+  width: 100%;
+
+  &__title {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #58a6ff;
+    border-bottom: 1px solid #21262d;
+  }
+
+  // 1. Нумерованный список
+  .num-list {
+    margin-bottom: 40px;
+    padding-left: 25px;
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      color: #1f6feb; /* Цвет маркеров */
+      // ИСПРАВЛЕНО: Перебиваем list-style: none из файла обнуления!
+      // decimal заставляет браузер снова показывать родные цифры/буквы
+      list-style: decimal !important;
+    }
+
+    &__item {
+      margin-bottom: 12px;
+      padding-left: 5px;
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #c9d1d9;
+    }
+  }
+
+  // 2. Маркированный список (Кастомные маркеры-кубики на Flexbox)
+  .mark-list {
+    margin-bottom: 40px;
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      display: flex; /* Включаем флекс-режим для строки */
+      gap: 12px; /* Четкий контролируемый отступ между кубиком и текстом */
+      align-items: center; /* Идеально центрируем кубик и текст по вертикали */
+      margin-bottom: 12px;
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #c9d1d9;
+
+      &::before {
+        content: "";
+        flex-shrink: 0; /* Гарантирует, что кубик не сожмется, если текст длинный */
+        width: 8px;
+        height: 8px;
+        background-color: #58a6ff;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  // 3. Список определений (Темные карточки)
+  .def-list {
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__row {
+      display: flex;
+      gap: 20px;
+      padding: 15px 20px;
+      background-color: #161b22;
+      border: 1px solid #444;
+      border-radius: 6px;
+    }
+
+    &__term {
+      min-width: 100px;
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #58a6ff;
+    }
+
+    &__desc {
+      margin: 0;
+      font-family: sans-serif;
+      font-size: 15px;
+      color: #8b949e;
+    }
+  }
+}

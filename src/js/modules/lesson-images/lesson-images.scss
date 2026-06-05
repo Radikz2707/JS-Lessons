@@ -1,0 +1,301 @@
+.magic-background {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #04060a;
+  background-image: 
+    radial-gradient(circle at 75% 30%, rgb(88 166 255 / 25%) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, rgb(139 92 246 / 20%) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgb(244 63 94 / 8%) 0%, transparent 40%);
+  animation: space-rotate 40s linear infinite;
+  pointer-events: none;
+}
+
+.lesson-images {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 250px);
+  padding: 40px 20px; 
+  border-radius: 0 0 24px 24px;
+  box-sizing: border-box;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 35px;
+    padding-bottom: 12px;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #58a6ff;
+    text-align: center;
+    text-shadow: 0 0 20px rgb(88 166 255 / 40%); 
+    border-bottom: 1px solid rgb(88 166 255 / 15%);
+    animation: 
+      fade-in-text 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+      title-pulse 3s ease-in-out infinite alternate 1.2s;
+  }
+
+  &__block {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 380px; 
+    padding: 20px;
+    background: rgb(13 17 23 / 65%);
+    border: 1px solid rgb(255 255 255 / 10%); 
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgb(0 0 0 / 90%), inset 0 1px 2px rgb(255 255 255 / 20%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.5s ease;
+    animation: zoom-in-block 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    box-sizing: border-box; 
+    backdrop-filter: blur(25px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  &__block::after {
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    z-index: 4;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+      to right, 
+      rgb(255 255 255 / 0%) 0%, 
+      rgb(255 255 255 / 25%) 50%, 
+      rgb(255 255 255 / 0%) 100%
+    );
+    transition: left 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: rotate(25deg);
+    pointer-events: none;
+    content: "";
+  }
+
+  &__block:hover::after {
+    left: 150%;
+  }
+
+  &__block:hover {
+    border-color: rgb(88 166 255 / 30%);
+    transform: rotateX(6deg) rotateY(-6px) translateY(-5px);
+  }
+
+  &__img {  
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;    
+    margin: 0 auto;       
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgb(0 0 0 / 60%);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease, filter 0.5s ease;
+    transform: translateZ(20px);  
+    object-fit: cover;
+    filter: contrast(1.06) brightness(1.02) saturate(1.1);
+  }
+
+  &__block:hover &__img {
+    box-shadow: 0 30px 50px rgb(0 0 0 / 80%), 0 0 30px rgb(88 166 255 / 40%);
+    transform: translateZ(40px) scale(1.02); 
+    filter: contrast(1.1) brightness(1.05) saturate(1.15);
+  }
+
+  /* PREMIUM CALLIGRAPHIC SUBTITLE */
+  &__subtitle {
+    position: relative;
+    z-index: 2;
+    margin: 20px 0 5px;
+    font-family: Georgia, cursive, serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #ffb3c6;
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: text-glow-pulse 3s ease-in-out infinite alternate;
+    transform: translateZ(25px);
+  }
+
+  &__block:hover &__subtitle {
+    color: #ffccd5;
+    transform: translateZ(45px) scale(1.03);
+  }
+}
+
+.magic-holo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(115deg, transparent 0%, rgb(255 100 100 / 10%) 30%, rgb(100 255 200 / 15%) 45%, rgb(100 100 255 / 15%) 55%, transparent 70%);
+  background-position: 0% 0%;
+  background-size: 300% 300%; 
+  border-radius: 20px;
+  opacity: 0; 
+  transition: opacity 0.5s ease, background-position 0.5s ease;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+}
+
+.lesson-images__block:hover .magic-holo {
+  background-position: 100% 100%;
+  opacity: 1;
+}
+
+.magic-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%; 
+  pointer-events: none;
+}
+
+.magic-particles::before,
+.magic-particles::after {
+  content: "❤️";
+  position: absolute;
+  font-size: 24px;
+  text-shadow: 
+    0 0 10px #ff2a5f, 
+    0 0 25px #ff2a5f, 
+    0 0 45px #ff7300;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.magic-particles::before {
+  animation: magic-orbit-one 6s linear infinite;
+}
+
+.magic-particles::after {
+  animation: magic-orbit-two 7s linear infinite;
+}
+
+@keyframes space-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes magic-orbit-one {
+  0% { 
+    top: 80%; 
+    left: 20%; 
+    opacity: 0; 
+    transform: scale(0.4) rotate(-15deg); 
+  }
+
+  15% { 
+    opacity: 0.9; 
+  }
+
+  50% { 
+    top: 30%; 
+    left: 80%; 
+    transform: scale(1.1) rotate(15deg); 
+  }
+
+  85% { 
+    opacity: 0.9; 
+  }
+
+  100% { 
+    top: -5%; 
+    left: 40%; 
+    opacity: 0; 
+    transform: scale(0.4) rotate(-10deg); 
+  }
+}
+
+@keyframes magic-orbit-two {
+  0% { 
+    top: 75%; 
+    left: 80%; 
+    opacity: 0; 
+    transform: scale(0.4) rotate(15deg); 
+  }
+
+  25% { 
+    opacity: 0.8; 
+  }
+
+  65% { 
+    top: 15%; 
+    left: 20%; 
+    transform: scale(1.3) rotate(-20deg); 
+  }
+
+  85% { 
+    opacity: 0.8; 
+  }
+
+  100% { 
+    top: -5%; 
+    left: 55%; 
+    opacity: 0; 
+    transform: scale(0.3) rotate(10deg); 
+  }
+}
+
+@keyframes fade-in-text {
+  from { opacity: 0;
+ transform: translateY(-10px); filter: blur(8px); }
+
+  to { opacity: 1;
+ transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes title-pulse {
+  0% { 
+    text-shadow: 0 0 15px rgb(88 166 255 / 30%); 
+  }
+
+  100% { 
+    color: #c9e2ff; 
+    text-shadow: 0 0 30px rgb(88 166 255 / 70%); 
+  }
+}
+
+/* New romantic text pulsing animation */
+@keyframes text-glow-pulse {
+  0% { 
+    text-shadow: 0 0 10px rgb(255 42 95 / 20%); 
+  }
+
+  100% { 
+    text-shadow: 
+      0 0 15px rgb(255 42 95 / 60%), 
+      0 0 25px rgb(255 115 0 / 30%); 
+  }
+}
+
+@keyframes zoom-in-block {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92) rotateX(-15px);
+    filter: brightness(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: brightness(1);
+  }
+}

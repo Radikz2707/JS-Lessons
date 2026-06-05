@@ -1,0 +1,164 @@
+<section class="html_sandbox">
+  <div class="html_sandbox__container container">
+    <div class="html_sandbox__switcher lesson-switcher">
+      <label class="lesson-switcher__label" for="lesson-select"
+        >Номер урока:</label
+      >
+      <select id="lesson-select" class="lesson-switcher__select">
+        <option value="1">Урок 1</option>
+        <option value="2">Урок 2</option>
+        <option value="3">Урок 3</option>
+        <option value="4">Урок 4</option>
+      </select>
+    </div>
+
+    <!-- === УРОК 1 (Таблица с атрибутами headers) === -->
+    <div data-lesson="1" class="lesson-table">
+      <table class="example-table">
+        <caption class="example-table__name">
+          Пример таблицы
+        </caption>
+        <thead>
+          <tr>
+            <!-- 1. Задаем ID для главных заголовков -->
+            <th id="th-one" colspan="2">Один</th>
+            <th id="th-two" colspan="2">Два</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Строка 1 -->
+          <tr>
+            <!-- Ячейка 1 и 2 относятся к заголовку "Один" -->
+            <td id="cell-1" rowspan="2" headers="th-one">1</td>
+            <td headers="th-one">2</td>
+            <!-- Ячейка 3 и 4 относятся к заголовку "Два" -->
+            <td headers="th-two">3</td>
+            <td headers="th-two">4</td>
+          </tr>
+          <!-- Строка 2 -->
+          <tr>
+            <!-- Ячейка 1 пропущена (rowspan), 2a относится к "Один" -->
+            <td headers="th-one">2a</td>
+            <!-- 3a и 4a относятся к "Два" -->
+            <td headers="th-two">3a</td>
+            <td headers="th-two">4a</td>
+          </tr>
+          <!-- Строка 3 -->
+          <tr>
+            <!-- Ячейка 1b и 2b относятся к "Один" -->
+            <td id="cell-1b" rowspan="2" headers="th-one">1b</td>
+            <td headers="th-one">2b</td>
+            <!-- 3b and 4b относятся к "Два" -->
+            <td headers="th-two">3b</td>
+            <td headers="th-two">4b</td>
+          </tr>
+          <!-- Строка 4 -->
+          <tr>
+            <!-- Ячейка 1b пропущена (rowspan), 2c относится к "Один" -->
+            <td headers="th-one">2c</td>
+            <!-- 3c и 4c относятся к "Два" -->
+            <td headers="th-two">3c</td>
+            <td headers="th-two">4c</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- === УРОК 2 === -->
+    <div data-lesson="2" class="lesson-forms hidden">
+      <h2 class="lesson-forms__title">Урок 2: Форма обратной связи</h2>
+      <form class="lesson-forms__box">
+        <div class="lesson-forms__field">
+          <label class="lesson-forms__label">Ваше имя:</label>
+          <input
+            type="text"
+            class="lesson-forms__input"
+            placeholder="Введите имя"
+            required
+          />
+        </div>
+        <div class="lesson-forms__field">
+          <label class="lesson-forms__label">Ваш Email:</label>
+          <input
+            type="email"
+            class="lesson-forms__input"
+            placeholder="example@mail.com"
+            required
+          />
+        </div>
+        <button type="submit" class="lesson-forms__button">
+          Отправить форму
+        </button>
+      </form>
+    </div>
+
+    <!-- === УРОК 3: СПИСКИ (Активен при выборе цифры 3) === -->
+    <div data-lesson="3" class="lesson-lists hidden">
+      <h2 class="lesson-lists__title">
+        Урок 3: Маркированные и нумерованные списки
+      </h2>
+
+      <!-- Здесь мы начнем писать код нашего урока -->
+      <!-- === 1. Ваш идеальный нумерованный список === -->
+      <section class="num-list">
+        <ol class="num-list__list">
+          <li class="num-list__item">Gulp</li>
+          <li class="num-list__item">Webpack</li>
+          <li class="num-list__item">TypeScript</li>
+        </ol>
+      </section>
+
+      <!-- === 2. Маркированный список (ul) === -->
+      <section class="mark-list">
+        <ul class="mark-list__list">
+          <li class="mark-list__item">HTML</li>
+          <li class="mark-list__item">CSS</li>
+          <li class="mark-list__item">Sass / SCSS</li>
+        </ul>
+      </section>
+
+      <!-- === 3. Список определений (dl) === -->
+      <section class="def-list">
+        <dl class="def-list__body">
+          <!-- Оборачиваем каждую пару в БЭМ-элемент __row для удобной сетки -->
+          <div class="def-list__row">
+            <dt class="def-list__term">colspan</dt>
+            <dd class="def-list__desc">
+              Атрибут для объединения ячеек таблицы по горизонтали.
+            </dd>
+          </div>
+
+          <div class="def-list__row">
+            <dt class="def-list__term">rowspan</dt>
+            <dd class="def-list__desc">
+              Атрибут для объединения ячеек таблицы по вертикали.
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <!-- === УРОК 4: ИЗОБРАЖЕНИЯ === -->
+    <div data-lesson="4" class="lesson-images lesson-images--active hidden">
+      <div class="magic-background"></div>
+      <div class="magic-particles"></div>
+
+      <h2 class="lesson-images__title">Урок 4: Современные изображения</h2>
+
+      <div class="lesson-images__block magic-card">
+        <img
+          src="/images/image.jpg"
+          alt="Моя тестовая картинка"
+          class="lesson-images__img"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div class="magic-holo"></div>
+
+        <!-- ДОБАВИЛИ НАДПИСЬ ПОД ФОТОГРАФИЕЙ -->
+        <p class="lesson-images__subtitle">Мой ангелочек</p>
+      </div>
+    </div>
+  </div>
+</section>

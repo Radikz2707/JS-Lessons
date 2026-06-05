@@ -1,0 +1,17 @@
+@use "base/zero";
+@use "../components/sandbox-tabs/sandbox-tabs" as *;
+@use "../components/html_sandbox/html_sandbox" as *;
+@use "../components/sandbox-ui/sandbox-ui" as *;
+@use "../js/modules/lesson-table/lesson-table" as *;
+@use "../js/modules/lesson-forms/lesson-forms" as *;
+@use "../js/modules/lesson-lists/lesson-lists" as *;
+@use "../js/modules/lesson-images/lesson-images" as *;
+
+.hidden {
+   display: none !important; /* Добавили !important для надежности скрытия */
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0d1117;
+}
