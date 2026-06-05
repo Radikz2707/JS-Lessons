@@ -1,12 +1,12 @@
 .magic-background {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
   background-color: #04060a;
-  background-image: 
+  background-image:
     radial-gradient(circle at 75% 30%, rgb(88 166 255 / 25%) 0%, transparent 50%),
     radial-gradient(circle at 25% 75%, rgb(139 92 246 / 20%) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgb(244 63 94 / 8%) 0%, transparent 40%);
@@ -86,7 +86,7 @@
     left: 150%;
   }
 
-    &__block:hover {
+  &__block:hover {
     border-color: rgb(88 166 255 / 30%);
     transform: rotateX(6deg) rotateY(-6deg) translateY(-5px);
   }
@@ -255,11 +255,17 @@
 }
 
 @keyframes fade-in-text {
-  from { opacity: 0;
- transform: translateY(-10px); filter: blur(8px); }
+  from { 
+    opacity: 0;
+    transform: translateY(-10px); 
+    filter: blur(8px); 
+  }
 
-  to { opacity: 1;
- transform: translateY(0); filter: blur(0); }
+  to { 
+    opacity: 1;
+    transform: translateY(0); 
+    filter: blur(0); 
+  }
 }
 
 @keyframes title-pulse {
@@ -273,7 +279,6 @@
   }
 }
 
-/* New romantic text pulsing animation */
 @keyframes text-glow-pulse {
   0% { 
     text-shadow: 0 0 10px rgb(255 42 95 / 20%); 
